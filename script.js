@@ -69,9 +69,14 @@ OVERLAY.addEventListener('click', ()=>{
 });
 
 const modalOpen = (src) =>{
-    MODAL.classList.toggle('active');
-    OVERLAY.classList.toggle('active');
-    MODAL.innerHTML = `<img class="modalImg" src="${src}">`
+    if(screen.width > 800){
+        MODAL.classList.toggle('active');
+        OVERLAY.classList.toggle('active');
+        MODAL.innerHTML = `<img class="modalImg" src="${src}">`
+    }
+    else {
+        return
+    }
 };
 IMAGESArr.forEach(e => {
     e.addEventListener('click', ()=>{
