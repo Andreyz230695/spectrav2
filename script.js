@@ -54,4 +54,27 @@ const hamburgerDisplay = () =>{
         }
     }
 
-    document.onload(checkWidth())
+    document.onload = checkWidth();
+
+
+//open images on click
+const IMAGES_SOURCE = document.querySelectorAll(".cardImg");
+const IMAGESArr = Array.from(IMAGES_SOURCE);
+const MODAL = document.getElementById('modal');
+const OVERLAY = document.getElementById('overlay');
+
+OVERLAY.addEventListener('click', ()=>{
+    OVERLAY.classList.toggle('active');
+    MODAL.classList.toggle('active');
+});
+
+const modalOpen = (src) =>{
+    MODAL.classList.toggle('active');
+    OVERLAY.classList.toggle('active');
+    MODAL.innerHTML = `<img class="modalImg" src="${src}">`
+};
+IMAGESArr.forEach(e => {
+    e.addEventListener('click', ()=>{
+        modalOpen(e.getAttribute('src'))
+    })
+});

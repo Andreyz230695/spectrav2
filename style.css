@@ -213,25 +213,82 @@
     justify-content: center;
     align-items: center;
     padding: 2em;
-    box-shadow: 0px 1px 5px 1px;
-    border-radius: 20px;
+    /* box-shadow: 0px 1px 5px 1px;
+    border-radius: 20px; */
     margin: 1em;
-    flex: 1 1 0px;
+    justify-content: center;  
+    flex:1 1 0px;  
+
+}
+
+.row{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.cardTitle{
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5em;
 }
 
 
 
 .cardImg{
-    max-width: 320px;
-    height: 260px;
-    padding: 2em;
+    width: 400px;
+    cursor: pointer;
 }
+
+
+
 .cardDesc{
     text-align: center;
     font-weight: 500;
     font-size: 18px;
+    grid-row: 2;
+    align-self: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
 
+/* modal */
+.overlay{
+    display: none;
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: .9; 
+}
+
+.overlay.active{
+    display: block;
+}
+
+.modal{
+    position: fixed;
+    width: 90%;
+    height: 90%;
+    background: rgb(238,219,212);
+    background: linear-gradient(90deg, rgba(238,219,212,1) 0%, rgba(215,189,178,1) 100%);
+    top: 0;
+    left: 0;
+    transform: translate(5%,5%);
+    display: none;
+}
+
+.modal.active{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalImg{
+    width: 90%;
+    height: 90%;
+}
 
 /* quote */
 .quote{
@@ -362,7 +419,7 @@ address{
 
 }
 
-.footer{
+.secondFooter{
     font-weight: 600;
     font-size: 20px;
     width: 100%;
@@ -388,5 +445,11 @@ address{
 
     .wapFixed{
         display: block;
+    }
+    .card{
+        width: 100%;
+    }
+    .cardImg{
+        width: 100%;
     }
 }
