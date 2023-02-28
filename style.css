@@ -167,6 +167,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
+    flex:1 1 0px;
 }
 .heroImg{
     max-width:320px;
@@ -216,14 +217,15 @@
     /* box-shadow: 0px 1px 5px 1px;
     border-radius: 20px; */
     margin: 1em;
-    justify-content: center;  
-    flex:1 1 0px;  
+    justify-content: center;
+    width: 100%;
 
 }
 
 .row{
     display:flex;
     flex-wrap: wrap;
+    flex: 1 1 0px;
 }
 
 .cardTitle{
@@ -236,53 +238,51 @@
 
 .cardImg{
     width: 400px;
+    height: 320px;
     cursor: pointer;
 }
 
 
-
-.cardDesc{
-    text-align: center;
-    font-weight: 500;
-    font-size: 18px;
-    grid-row: 2;
-    align-self: center;
-    grid-column-start: 1;
-    grid-column-end: 4;
-}
-
 /* modal */
 .overlay{
-    display: none;
     position:fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: #000000;
-    opacity: .9; 
+    opacity:0; 
+    transition: all 200ms ease-in-out;
+    transform: scale(0);
 }
 
 .overlay.active{
-    display: block;
+    transform: scale(1);
+    opacity: .9;
+    overflow: hidden;
+
 }
 
 .modal{
     position: fixed;
-    width: 90%;
-    height: 90%;
+    width: 60%;
+    height: 80%;
     background: rgb(238,219,212);
     background: linear-gradient(90deg, rgba(238,219,212,1) 0%, rgba(215,189,178,1) 100%);
     top: 0;
     left: 0;
-    transform: translate(5%,5%);
-    display: none;
+    transform: translate(30%,10%) scale(0);
+    opacity: 0;
+    z-index: 1;
+    transition: all 200ms ease-in-out;
 }
 
 .modal.active{
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translate(30%,10%) scale(1);
+    opacity: 1;
 }
 
 .modalImg{
@@ -423,6 +423,7 @@ address{
     font-weight: 600;
     font-size: 20px;
     width: 100%;
+    text-align: center;
 }
 
 .wapFixed{
@@ -438,7 +439,7 @@ address{
     border-radius: 50%;
 }
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 800px){
     .topNav{
         display: none;
     }
@@ -451,5 +452,12 @@ address{
     }
     .cardImg{
         width: 100%;
+    }
+    .heroImg{
+        width: 200px;
+    }
+    .modal.active{
+        width: 90%;
+        transform: translate(5%,5%);
     }
 }

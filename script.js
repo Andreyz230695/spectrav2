@@ -44,7 +44,7 @@ const hamburgerDisplay = () =>{
     // check device width on load and display hamburger menu if on smaller devices
 
     const checkWidth = () => {
-        if(screen.width < 1000){
+        if(screen.width < 800){
             NAVTOGGLE.classList.add('active')
         }
         else{
